@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CalculatorTest {
     /*
@@ -16,6 +18,12 @@ public class CalculatorTest {
     }
 
     @Test
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "C:\\projects\\autotestcourse2019\\src\\main\\resources\\drivers\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+    }
+
+    @Test
     public void checkSumOfIntegers() {
         int expectedSum = 11;
         int ActualSum = calc.getSum(5, 6);
@@ -25,8 +33,8 @@ public class CalculatorTest {
     @Test
     public void checkDiffOfIntegers() {
         int expectedDiff = 3;
-        int expectedDiffNEG  = -3;
-        int expectedDiffPOS  = 13;
+        int expectedDiffNEG = -3;
+        int expectedDiffPOS = 13;
         int expectedDiffPOSplusNOL = 123;
 
         int ActualDiff = calc.getDifference(7, 4);
@@ -35,10 +43,9 @@ public class CalculatorTest {
         int ActualDiffPOSplusNOL = calc.getDifference(123, 0);
         Assert.assertEquals(expectedDiff, ActualDiff);
 
-        Assert.assertEquals("POS",expectedDiffPOS, ActualDiffPOS );
-        Assert.assertEquals("NEG",expectedDiffNEG, ActualDiffNEG );
-        Assert.assertEquals("POSplusNOL",expectedDiffPOSplusNOL, ActualDiffPOSplusNOL);
-
+        Assert.assertEquals("POS", expectedDiffPOS, ActualDiffPOS);
+        Assert.assertEquals("NEG", expectedDiffNEG, ActualDiffNEG);
+        Assert.assertEquals("POSplusNOL", expectedDiffPOSplusNOL, ActualDiffPOSplusNOL);
 
 
     }

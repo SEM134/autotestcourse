@@ -34,6 +34,6 @@ public class FirstTest {
         driver.findElement(By.xpath("//*[@title='Proceed to checkout']")).click();
         String value = driver.findElement(By.id("total_price")).getText();
 
-        Assert.assertEquals("Two elements NOT equa", "29.00", value);
+        Assert.assertEquals("Two elements NOT equal", "$29.00", value);
     }
 }

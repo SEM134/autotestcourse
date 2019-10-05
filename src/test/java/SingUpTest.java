@@ -49,6 +49,10 @@ public class SingUpTest {
         driver.findElement(By.id("city")).sendKeys("kiev");
         driver.findElement(By.id("id_state")).click();
         driver.findElement(By.xpath("//*[@id='id_state']/option[2]")).click();
+//        driver.findElement(By.xpath("//*[@id='id_state']/option[2]")).isEnabled();// проверяет что поле редактируется.
+//        driver.findElement(By.xpath("//*")).isEnabled();
+//        driver.findElement(By.xpath("//*")).isDisplayed();
+//        driver.findElement(By.xpath("//*")).isSelected();
 
         driver.findElement(By.id("postcode")).sendKeys("12345");
         driver.findElement(By.id("phone_mobile")).sendKeys("06688774411");

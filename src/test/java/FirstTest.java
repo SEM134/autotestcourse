@@ -8,9 +8,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 public class FirstTest {
     WebDriver driver;
     final String expectedTotalPrice = "$29.00";
@@ -33,15 +30,12 @@ public class FirstTest {
 
     @Test
     public void testToCart() {
+        enterIntoSearchField("Bloose");
+        clickSearchButton();
+        clickListView();
+        clickButtonAddToCart();
 
-        driver.findElement(By.id(searchInput)).sendKeys("Bloose");
-        driver.findElement(By.name("submit_search")).click();
-        driver.findElement(By.id("list")).click();
-        driver.findElement(By.xpath(this.buttonAddToCart)).click();
-        //добавляем  ожидания для конкретного драйвера,  на 10 секкуд
-        // explicitWait
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
-        webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@title='Proceed to checkout']")))).click();
+        clickProccedToCheckoutButton();
         // driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);/*если в течении указаного времени элемент на будет найден, то будет exeption */
 //        driver.findElement(By.xpath("//*[@title='Proceed to checkout']")).click();
         String actualTotalPrice = driver.findElement(By.id("total_price")).getText();
@@ -57,7 +51,7 @@ public class FirstTest {
         String expectedTotalPrice = "$56.00";
         driver.findElement(By.id(searchInput)).sendKeys("Bloose");
         driver.findElement(By.name("submit_search")).click();
-        driver.findElement(By.id("list")).click();
+        clickListView();
 
         driver.findElement(By.xpath("//*[@id='center_column']/ul/li/div/div/div[3]/div/div[2]/a[2]")).click();
         driver.findElement(By.xpath("//*[@id='quantity_wanted_p']/a[2]")).click();
@@ -74,7 +68,7 @@ public class FirstTest {
         String expectedTotalPrice = "Your shopping cart is empty.";
         driver.findElement(By.id(searchInput)).sendKeys("Bloose");
         driver.findElement(By.name("submit_search")).click();
-        driver.findElement(By.id("list")).click();
+        clickListView();
 
         driver.findElement(By.xpath("//*[@id='center_column']/ul/li/div/div/div[3]/div/div[2]/a[2]")).click();
         driver.findElement(By.xpath("//*[@id='quantity_wanted_p']/a[2]")).click();
@@ -106,5 +100,20 @@ public class FirstTest {
 
 
     }
-
+    private void enterIntoSearchField(String item) {
+        driver.findElement(By.id(searchInput)).sendKeys(item);
+    }
+    private void clickSearchButton() {
+        driver.findElement(By.name("submit_search")).click();
+    }
+    private void clickListView() {
+        driver.findElement(By.id("list")).click();
+    }
+    private void clickButtonAddToCart() {
+        driver.findElement(By.xpath(this.buttonAddToCart)).click();
+    }
+    private void clickProccedToCheckoutButton() {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
+        webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@title='Proceed to checkout']")))).click();
+    }
 }

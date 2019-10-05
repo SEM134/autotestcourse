@@ -47,3 +47,8 @@ Fluent wait
 ajax
 document.readyState="completed" JS проверка загрузки страницы.
 если страница не перегружается полностью, то используем явные ожидания
+
+
+======Selenium advatced API=====
+Actions.
+

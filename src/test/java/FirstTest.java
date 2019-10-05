@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -94,6 +95,16 @@ public class FirstTest {
 
 
         Assert.assertEquals("Two elements NOT equal", expectedTotalPrice, actualTotalResult);
+    }
+
+    @Test
+    public void verifyAddItemToCartWithActins() {
+        Actions actions =  new Actions(driver);
+        actions.moveToElement(driver.findElement(By.xpath("//a[@title='Women']"))).build().perform();
+
+        driver.findElement(By.xpath("//a[@title='T-shirts']")).click();
+
+
     }
 
 }

@@ -19,7 +19,7 @@ public class CalculatorTest {
 
     @Test
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\projects\\autotestcourse2019\\src\\main\\resources\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("http://automationpractice.com/");
         driver.findElement(By.id("search_query_top")).sendKeys("Bloose");

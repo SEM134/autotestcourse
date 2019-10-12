@@ -1,12 +1,7 @@
-
 import onlineShopPage.OnlineShopPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class NGOnlineShopTest extends BaseTest {
@@ -33,8 +28,4 @@ public class NGOnlineShopTest extends BaseTest {
         page.waitErrorMessage();
         Assert.assertEquals(page.getErrorMessage(), massage);
     }
-
-
-
-
 }

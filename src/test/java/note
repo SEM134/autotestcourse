@@ -52,3 +52,12 @@ document.readyState="completed" JS проверка загрузки стран�
 ======Selenium advatced API=====
 Actions.
 
+
+
+
+======
+webdrivermanager - добавляется через зависимости
+ дает возможность инициализировать драйвер проще
+ WebDriverManager.chromedriver().setup();
+ вместо  System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
+ без указания пути

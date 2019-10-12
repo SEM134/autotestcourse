@@ -61,3 +61,6 @@ webdrivermanager - добавляется через зависимости
  WebDriverManager.chromedriver().setup();
  вместо  System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\chromedriver.exe");
  без указания пути
+
+ ==
+ параметрический тест

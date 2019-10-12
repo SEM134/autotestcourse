@@ -40,9 +40,10 @@ public class OnlineShopPage {
         driver.findElement(By.name("submit_search")).click();
     }
 
-    public void searchItem(String item) {
+    public OnlineShopPage searchItem(String item) {
         enterIntoSearchField(item);
         clickSearchButton();
+        return this;
     }
 
 

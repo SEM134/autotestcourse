@@ -13,9 +13,7 @@ public class NGOnlineShopTest extends BaseTest {
         final String expectedTotalPrice = "$29.00";
 
         page = new OnlineShopPage(driver);
-        page = new OnlineShopPage(driver);
-        page.searchItem("Bloose");
-        page.switchOnListView();
+        page.searchItem("Bloose").switchOnListView();
         page.clickButtonAddToCart();
         page.clickProccedToCheckoutButton();
         String actualTotalPrice = driver.findElement(By.id("total_price")).getText();

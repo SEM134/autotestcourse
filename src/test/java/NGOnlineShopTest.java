@@ -22,7 +22,7 @@ public class NGOnlineShopTest extends BaseTest {
         driver.findElement(By.xpath("//a[@title='T-shirts']")).click();
     }
 
-    @Test(dataProvider = "create account")
+    @Test(dataProvider = "create account", dataProviderClass = CreateAccountDataProvider.class)
     public void verifyCreateAccount(String email, String massage) {
         page = new OnlineShopPage(driver);
 
@@ -34,13 +34,7 @@ public class NGOnlineShopTest extends BaseTest {
         Assert.assertEquals(page.getErrorMessage(), massage);
     }
 
-    @DataProvider(name = "create account")
-    private Object[][] createAccountData() {
-        return new Object[][]{
-                {"123@123.cc", "An account using this email address has already been registered. Please enter a valid password or request a new one."},
-                {"", "Invalid email address."}
-        };
-    }
+
 
 
 }

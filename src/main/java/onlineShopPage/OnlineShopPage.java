@@ -31,7 +31,6 @@ public class OnlineShopPage {
         driver.findElement(By.xpath("//a[@class='login']")).click();
     }
 
-
     public void enterIntoSearchField(String item) {
         driver.findElement(By.id(searchInput)).sendKeys(item);
     }
@@ -46,12 +45,9 @@ public class OnlineShopPage {
         return this;
     }
 
-
-
-
-
-    public void switchOnListView() {
+    public OnlineShopPage switchOnListView() {
         driver.findElement(By.id("list")).click();
+        return this;
     }
 
     public void clickButtonAddToCart() {
@@ -72,4 +68,5 @@ public class OnlineShopPage {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
         webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='create_account_error']"))));
     }
+
 }

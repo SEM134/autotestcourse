@@ -10,6 +10,21 @@ public class NGOnlineShopTest extends BaseTest {
 
     @Test
     public void verifyAddItemToCartWithActins() {
+        final String expectedTotalPrice = "$29.00";
+
+        page = new OnlineShopPage(driver);
+        page = new OnlineShopPage(driver);
+        page.searchItem("Bloose");
+        page.switchOnListView();
+        page.clickButtonAddToCart();
+        page.clickProccedToCheckoutButton();
+        String actualTotalPrice = driver.findElement(By.id("total_price")).getText();
+
+        org.junit.Assert.assertEquals("Two elements NOT equal", expectedTotalPrice, actualTotalPrice);
+    }
+
+    @Test
+    public void workWithMenu() {
         page = new OnlineShopPage(driver);
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(By.xpath("//a[@title='Women']"))).build().perform();

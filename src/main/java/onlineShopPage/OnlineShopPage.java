@@ -40,7 +40,16 @@ public class OnlineShopPage {
         driver.findElement(By.name("submit_search")).click();
     }
 
-    public void clickListView() {
+    public void searchItem(String item) {
+        enterIntoSearchField(item);
+        clickSearchButton();
+    }
+
+
+
+
+
+    public void switchOnListView() {
         driver.findElement(By.id("list")).click();
     }
 

@@ -82,9 +82,21 @@ public class NGOnlineShopTest extends BaseTest {
 //        String mes1 = "Invalid email address.";
 //        String mes2 = "An account using this email address has already been registered. Please enter a valid password or request a new one.";
         clickSignIn();
+        waitEmailField();
         enterIntoEmailField(email);
         clickButtonCreateAccount();
-        Assert.assertEquals("Сообщения отличаются.", massage, getErrorMessage());
+        waitErrorMessage();
+        Assert.assertEquals(getErrorMessage(), massage);
+    }
+
+    private void waitEmailField() {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated((By.id("email_create"))));
+    }
+
+    private void waitErrorMessage() {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
+        webDriverWait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='create_account_error']"))));
     }
 
     @DataProvider(name = "create account")

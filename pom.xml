@@ -8,7 +8,7 @@
     <artifactId>automationcourse</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <junit.version>4.12</junit.version> <!-- 4.12  https://mvnrepository.com/artifact/junit/junit/4.12-->
+        <junit.version>4.13.1</junit.version> <!-- 4.12  https://mvnrepository.com/artifact/junit/junit/4.12-->
     </properties>
 
     <dependencies>
